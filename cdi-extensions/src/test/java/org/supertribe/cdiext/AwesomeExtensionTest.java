@@ -11,6 +11,7 @@ import org.junit.Test;
 import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class AwesomeExtensionTest {
@@ -23,6 +24,10 @@ public class AwesomeExtensionTest {
         EJBContainer.createEJBContainer().getContext().bind("inject", this);
 
         assertNotNull(application);
+
+        final String userDir = System.getProperties().getProperty("user.dir");
+
+        assertEquals(userDir, application.getString());
     }
 
 }

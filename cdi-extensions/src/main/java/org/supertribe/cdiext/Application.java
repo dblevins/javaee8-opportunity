@@ -23,6 +23,11 @@ public class Application {
         return uri;
     }
 
+
+    public String getString() {
+        return string;
+    }
+
     public String getMessage() {
         return "Hello";
     }
