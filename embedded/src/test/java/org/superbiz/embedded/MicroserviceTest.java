@@ -16,11 +16,13 @@
  */
 package org.superbiz.embedded;
 
+import org.apache.openejb.loader.IO;
 import org.junit.Assert;
 import org.junit.Test;
 
 import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
+import java.net.URL;
 
 public class MicroserviceTest {
 
@@ -30,9 +32,14 @@ public class MicroserviceTest {
     @Test
     public void test() throws Exception {
 
-        EJBContainer.createEJBContainer().getContext().bind("inject", this);
+        EJBContainer.createEJBContainer(Main.getOpts()).getContext().bind("inject", this);
 
         Assert.assertNotNull(microservice);
+
+        final URL url = new URL("http://127.0.0.1:4204/embedded/api/messages");
+        final String content = IO.slurp(url);
+
+        Assert.assertEquals("", content);
 
     }
 }

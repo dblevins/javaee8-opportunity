@@ -17,21 +17,31 @@
 package org.superbiz.embedded;
 
 import javax.ejb.embeddable.EJBContainer;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
 
-    private static final Logger LOGGER = Logger.getLogger(Microservice.class.getName());
+    public static void main(String[] args) throws Exception {
 
-    public static void main(String[] args) throws InterruptedException {
+        EJBContainer.createEJBContainer(getOpts());
 
-        EJBContainer.createEJBContainer();
-
-        LOGGER.log(Level.INFO, "Microservice STARTED");
+        // Log we're done
+        Logger.getLogger(Microservice.class.getName()).log(Level.INFO, "Microservice STARTED");
 
         // Prevent the VM from exiting
         new Semaphore(0).acquire();
+    }
+
+    public static Map<?, ?> getOpts() throws IOException {
+        final Properties properties = new Properties();
+        properties.load(Main.class.getResourceAsStream("/META-INF/system.properties"));
+        properties.putAll(System.getProperties());
+
+        return properties;
     }
 }
