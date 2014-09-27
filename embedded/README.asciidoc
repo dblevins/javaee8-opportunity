@@ -1,0 +1,5 @@
+
+- Who thinks this is really cool?
+- Who would like the ability to use different implementations?
+- Who would like to see an API to make that easier?
+- Who would want tests you can use to test your implementation?

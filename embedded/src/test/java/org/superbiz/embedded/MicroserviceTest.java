@@ -16,12 +16,14 @@
  */
 package org.superbiz.embedded;
 
-import org.apache.openejb.loader.IO;
 import org.junit.Assert;
 import org.junit.Test;
 
 import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 public class MicroserviceTest {
@@ -36,10 +38,35 @@ public class MicroserviceTest {
 
         Assert.assertNotNull(microservice);
 
-        final URL url = new URL("http://127.0.0.1:4204/embedded/api/messages");
-        final String content = IO.slurp(url);
 
-        Assert.assertEquals("", content);
+        final String expected = "" +
+                "[\"\\\"Go after your dreams, there is going to be technology behind it\\\" says @eyeseewaters at #Devoxx4Kids #JavaOne\"," +
+                "" +
+                "\"#Devoxx4Kids stickers ready for #JavaOne. 150 kids, Is it the biggest kid+technology focused event in the USA?\"," +
+                "" +
+                "\"Today is #Devoxx4kids day in San Francisco together with Oracle, JavaOne, and 150 kids... expect more tweets :)\"]";
 
+        final String actual = get("http://127.0.0.1:4204/embedded/api/messages");
+
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    private static String get(final String spec) throws IOException {
+        final URL url = new URL(spec);
+        final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        final byte[] buffer = new byte[1024];
+        int length;
+
+        try (final InputStream inputStream = url.openStream()) {
+
+            while ((length = inputStream.read(buffer)) != -1) {
+                out.write(buffer, 0, length);
+            }
+
+            out.flush();
+        }
+
+        return new String(out.toByteArray());
     }
 }

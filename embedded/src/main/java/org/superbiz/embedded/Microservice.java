@@ -37,8 +37,11 @@ public class Microservice {
     @Produces(MediaType.APPLICATION_JSON)
     public List<String> getMessages() {
         return Arrays.asList(
+
                 "\"Go after your dreams, there is going to be technology behind it\" says @eyeseewaters at #Devoxx4Kids #JavaOne",
+
                 "#Devoxx4Kids stickers ready for #JavaOne. 150 kids, Is it the biggest kid+technology focused event in the USA?",
+
                 "Today is #Devoxx4kids day in San Francisco together with Oracle, JavaOne, and 150 kids... expect more tweets :)"
         );
     }
