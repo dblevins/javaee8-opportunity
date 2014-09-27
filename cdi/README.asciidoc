@@ -1,0 +1,9 @@
+# Java EE 6
+
+CDI Extensions
+
+- Made the jump from declarative to programattic
+- Extendable lifecycle management
+- Extendable events & observation
+- Extendable dependency injection
+- Extendable annotation processing
