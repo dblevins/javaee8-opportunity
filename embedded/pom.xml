@@ -57,40 +57,40 @@
                   <mainClass>org.superbiz.embedded.Main</mainClass>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
-                    <projectName>Apache CXF</projectName>
+                  <projectName>Apache CXF</projectName>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                    <resource>META-INF/spring.handlers</resource>
+                  <resource>META-INF/spring.handlers</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                    <resource>META-INF/services/com.sun.tools.xjc.Plugin</resource>
+                  <resource>META-INF/services/com.sun.tools.xjc.Plugin</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                    <resource>META-INF/spring.schemas</resource>
+                  <resource>META-INF/spring.schemas</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                    <resource>META-INF/cxf/cxf.extension</resource>
+                  <resource>META-INF/cxf/cxf.extension</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-                    <resource>META-INF/extensions.xml</resource>
+                  <resource>META-INF/extensions.xml</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-                    <resource>META-INF/cxf/extensions.xml</resource>
+                  <resource>META-INF/cxf/extensions.xml</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                    <resource>META-INF/cxf/bus-extensions.txt</resource>
+                  <resource>META-INF/cxf/bus-extensions.txt</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-                    <resource>META-INF/cxf/bus-extensions.xml</resource>
+                  <resource>META-INF/cxf/bus-extensions.xml</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-                    <resource>META-INF/wsdl.plugin.xml</resource>
+                  <resource>META-INF/wsdl.plugin.xml</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-                    <resource>META-INF/tools.service.validator.xml</resource>
+                  <resource>META-INF/tools.service.validator.xml</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-                    <resource>META-INF/cxf/java2wsbeans.xml</resource>
+                  <resource>META-INF/cxf/java2wsbeans.xml</resource>
                 </transformer>
               </transformers>
               <filters>
