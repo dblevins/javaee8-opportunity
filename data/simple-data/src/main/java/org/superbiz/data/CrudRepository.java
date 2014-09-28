@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,21 +16,8 @@
  */
 package org.superbiz.data;
 
-import javax.ejb.CreateException;
-import javax.ejb.FinderException;
-import java.util.Collection;
+import javax.ejb.EJBLocalHome;
 
-/**
- * @version $Revision$ $Date$
- */
-interface SimpleUserRepository extends CrudRepository<User, Integer> {
-
-    User create(String director, String title, int year) throws CreateException;
-
-    User findByPrimaryKey(Integer primarykey) throws FinderException;
-
-    Collection<User> findAll() throws FinderException;
-
-    Collection<User> findByDirector(String director) throws FinderException;
+public interface CrudRepository<K,V> extends EJBLocalHome {
 
 }
