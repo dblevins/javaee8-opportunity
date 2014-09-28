@@ -46,7 +46,7 @@ public class MicroserviceTest {
                 "" +
                 "\"Today is #Devoxx4kids day in San Francisco together with Oracle, JavaOne, and 150 kids... expect more tweets :)\"]";
 
-        final String actual = get("http://127.0.0.1:4204/embedded/api/messages");
+        final String actual = get("http://127.0.0.1:4204/microservice/api/messages");
 
         Assert.assertEquals(expected, actual);
 

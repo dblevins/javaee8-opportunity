@@ -11,10 +11,11 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>emedded</artifactId>
+  <artifactId>embedded</artifactId>
   <packaging>pom</packaging>
 
   <modules>
+    <module>ejbcontainer-api</module>
     <module>microservice</module>
   </modules>
 </project>
