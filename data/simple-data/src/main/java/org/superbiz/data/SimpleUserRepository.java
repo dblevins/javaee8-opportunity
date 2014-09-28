@@ -28,7 +28,7 @@ import java.util.Collection;
  */
 interface SimpleUserRepository extends CrudRepository<User, Integer> {
 
-    Collection<User> findByUsersName(String director) throws FinderException;
+    Collection<User> findByUsersName(String username) throws FinderException;
 
     User create(String director, String title, int year) throws CreateException;
 

@@ -32,7 +32,7 @@
         <field-name>id</field-name>
       </cmp-field>
       <cmp-field>
-        <field-name>director</field-name>
+        <field-name>username</field-name>
       </cmp-field>
       <cmp-field>
         <field-name>year</field-name>
@@ -43,12 +43,12 @@
       <primkey-field>id</primkey-field>
       <query>
         <query-method>
-          <method-name>findByDirector</method-name>
+          <method-name>findByUsersName</method-name>
           <method-params>
             <method-param>java.lang.String</method-param>
           </method-params>
         </query-method>
-        <ejb-ql>SELECT m FROM MovieBean m WHERE m.director = ?1</ejb-ql>
+        <ejb-ql>SELECT m FROM MovieBean m WHERE m.username = ?1</ejb-ql>
       </query>
       <query>
         <query-method>

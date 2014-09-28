@@ -25,9 +25,9 @@ public interface User extends AbstractPersistable<Integer> {
 
     void setId(Integer id);
 
-    String getDirector();
+    String getUsername();
 
-    void setDirector(String director);
+    void setUsername(String username);
 
     String getTitle();
 
