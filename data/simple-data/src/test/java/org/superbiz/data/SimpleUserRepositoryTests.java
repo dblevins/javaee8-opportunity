@@ -48,17 +48,25 @@ public class SimpleUserRepositoryTests {
     }
 
     @Test
-    public void test() throws Exception {
+    public void findSavedUserById() throws Exception {
 
-
-        Collection<User> list = repository.findAll();
-        assertEquals("Collection.size()", 1, list.size());
-
-        for (User user : list) {
-            repository.remove(user.getPrimaryKey());
-        }
-
-        assertEquals("Movies.findAll()", 0, repository.findAll().size());
+        assertEquals(user, repository.findByPrimaryKey(user.getId()));
     }
 
+    @Test
+    public void findSavedUserByLastname() throws Exception {
+
+        Collection<User> users = repository.findByLastname("Tarantino");
+
+        assertNotNull(users);
+        assertTrue(users.contains(user));
+    }
+
+    @Test
+   	public void findByFirstnameOrLastname() throws Exception {
+
+        Collection<User> users = repository.findByFirstnameOrLastname("Quentin");
+
+   		assertTrue(users.contains(user));
+   	}
 }

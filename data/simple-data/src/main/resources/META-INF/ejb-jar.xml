@@ -41,14 +41,42 @@
         <field-name>lastname</field-name>
       </cmp-field>
       <primkey-field>id</primkey-field>
+
       <query>
         <query-method>
-          <method-name>findByUsersName</method-name>
+          <method-name>findByTheUsersName</method-name>
           <method-params>
             <method-param>java.lang.String</method-param>
           </method-params>
         </query-method>
         <ejb-ql>SELECT m FROM MovieBean m WHERE m.username = ?1</ejb-ql>
+      </query>
+      <query>
+        <query-method>
+          <method-name>findByLastname</method-name>
+          <method-params>
+            <method-param>java.lang.String</method-param>
+          </method-params>
+        </query-method>
+        <ejb-ql>SELECT m FROM MovieBean m WHERE m.lastname = ?1</ejb-ql>
+      </query>
+      <query>
+        <query-method>
+          <method-name>findByFirstname</method-name>
+          <method-params>
+            <method-param>java.lang.String</method-param>
+          </method-params>
+        </query-method>
+        <ejb-ql>SELECT m FROM MovieBean m WHERE m.firstname = ?1</ejb-ql>
+      </query>
+      <query>
+        <query-method>
+          <method-name>findByFirstnameOrLastname</method-name>
+          <method-params>
+            <method-param>java.lang.String</method-param>
+          </method-params>
+        </query-method>
+        <ejb-ql>SELECT m FROM MovieBean m WHERE m.firstname = ?1</ejb-ql>
       </query>
       <query>
         <query-method>
