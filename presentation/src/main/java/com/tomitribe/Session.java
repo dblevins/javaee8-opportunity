@@ -52,7 +52,6 @@ public class Session {
     */
 
 
-
     /**
      * Not going to read you the specs
      */
@@ -88,6 +87,7 @@ public class Session {
 
 
     @Slide
+    @Note("Still too many")
     public static enum Topics {
         /* Past */
         QUICK_HISTORY,
@@ -104,6 +104,8 @@ public class Session {
         TESTING,
 
         /* Future */
+        JMS_MDB,
+
         META_ANNOTATIONS,
 
         LAMBDAS,
@@ -145,6 +147,40 @@ public class Session {
 
         /** 'Trim' Legacy **/
         FULL_PROFILE,
+    }
+
+
+
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+    */
+
+
+    @Slide("The JCP is Yours")
+    public static enum JCP {
+        @Year(2004)
+        CERTIFIED_OPEN_SOURCE_SERVERS,
+
+        @Year(2009)
+        JSR_OPEN_SOURCE_TCK,
+
+        @Year(2013)
+        OPENLY_DEVELOPED_JAVAEE_RELEASE,
+
+        @Year(2017)
+        UNKNOWN, /** You decide **/
     }
 
 
@@ -196,6 +232,7 @@ public class Session {
 
     static {
         Focus.values();
+        JCP.values();
         QuickHistory.values();
         Topics.values();
 //        for (final Focus focus : Focus.values()) {
