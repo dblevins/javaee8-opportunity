@@ -15,7 +15,7 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>ejbcontainer-api</module>
+    <!--<module>ejbcontainer-api</module>-->
     <module>persistence</module>
     <module>microservice</module>
   </modules>
