@@ -26,6 +26,9 @@ import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * No UserTransaction or EntityTransaction required
+ */
 public class MoviesTest {
 
     @EJB
