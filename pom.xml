@@ -25,5 +25,6 @@
     <module>testing</module>
     <module>webprofile</module>
     <module>data</module>
+    <module>misc</module>
   </modules>
 </project>
