@@ -29,26 +29,26 @@ import static org.junit.Assert.assertEquals;
 /**
  * @version $Revision: 607077 $ $Date: 2007-12-27 06:55:23 -0800 (Thu, 27 Dec 2007) $
  */
-public class MoviesTest {
+public class SimpleUserRepositoryTests {
 
     @EJB
-    private Movies movies;
+    private SimpleUserRepository repository;
 
     @Test
     public void test() throws Exception {
 
-        movies.create("Quentin Tarantino", "Reservoir Dogs", 1992);
-        movies.create("Joel Coen", "Fargo", 1996);
-        movies.create("Joel Coen", "The Big Lebowski", 1998);
+        repository.create("Quentin Tarantino", "Reservoir Dogs", 1992);
+        repository.create("Joel Coen", "Fargo", 1996);
+        repository.create("Joel Coen", "The Big Lebowski", 1998);
 
-        Collection<Movie> list = movies.findAll();
+        Collection<Movie> list = repository.findAll();
         assertEquals("Collection.size()", 3, list.size());
 
         for (Movie movie : list) {
-            movies.remove(movie.getPrimaryKey());
+            repository.remove(movie.getPrimaryKey());
         }
 
-        assertEquals("Movies.findAll()", 0, movies.findAll().size());
+        assertEquals("Movies.findAll()", 0, repository.findAll().size());
     }
 
     @Before

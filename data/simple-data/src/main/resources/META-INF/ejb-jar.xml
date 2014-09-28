@@ -20,7 +20,7 @@
   <enterprise-beans>
     <entity>
       <ejb-name>MovieBean</ejb-name>
-      <local-home>org.superbiz.data.Movies</local-home>
+      <local-home>org.superbiz.data.SimpleUserRepository</local-home>
       <local>org.superbiz.data.Movie</local>
       <ejb-class>org.superbiz.data.MovieBean</ejb-class>
       <persistence-type>Container</persistence-type>
