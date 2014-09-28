@@ -19,7 +19,6 @@ package org.superbiz.data;
 import javax.ejb.CreateException;
 import javax.ejb.FinderException;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Simple repository interface for {@link User} instances. The interface is used to declare so called query methods,
@@ -27,50 +26,48 @@ import java.util.List;
  *
  * @author David Blevins
  */
-interface SimpleUserRepository extends CrudRepository<User, Integer> {
+interface SimpleUserRepository extends CrudRepository<User, Long> {
 
     /**
-   	 * Find the user with the given username. This method will be translated into a query using the
-   	 * {@link javax.persistence.NamedQuery} annotation at the {@link User} class.
-   	 *
-   	 * @param lastname
-   	 * @return
-   	 */
-   	User findByTheUsersName(String username) throws FinderException;
+     * Find the user with the given username. This method will be translated into a query using the
+     * {@link javax.persistence.NamedQuery} annotation at the {@link User} class.
+     *
+     * @param lastname
+     * @return
+     */
+    User findByTheUsersName(String username) throws FinderException;
 
-   	/**
-   	 * Find all users with the given lastname. This method will be translated into a query by constructing it directly
-   	 * from the method name as there is no other query declared.
-   	 *
-   	 * @param lastname
-   	 * @return
-   	 */
+    /**
+     * Find all users with the given lastname. This method will be translated into a query by constructing it directly
+     * from the method name as there is no other query declared.
+     *
+     * @param lastname
+     * @return
+     */
     Collection<User> findByLastname(String lastname) throws FinderException;
 
-   	/**
-   	 * Returns all users with the given firstname. This method will be translated into a query using the one declared in
-   	 * the {@link Query} annotation declared one.
-   	 *
-   	 * @param firstname
-   	 * @return
-   	 */
-   	@Query("select u from User u where u.firstname = ?")
-    Collection<User> findByFirstname(String firstname)  throws FinderException;
+    /**
+     * Returns all users with the given firstname. This method will be translated into a query using the one declared in
+     * the {@link Query} annotation declared one.
+     *
+     * @param firstname
+     * @return
+     */
+    Collection<User> findByFirstname(String firstname) throws FinderException;
 
-   	/**
-   	 * Returns all users with the given name as first- or lastname. Makes use of the {@link Param} annotation to use named
-   	 * parameters in queries. This makes the query to method relation much more refactoring safe as the order of the
-   	 * method parameters is completely irrelevant.
-   	 *
-   	 * @param name
-   	 * @return
-   	 */
-   	@Query("select u from User u where u.firstname = :name or u.lastname = :name")
-    Collection<User> findByFirstnameOrLastname(@Param("name") String name)  throws FinderException;
+    /**
+     * Returns all users with the given name as first- or lastname. Makes use of the {@link Param} annotation to use named
+     * parameters in queries. This makes the query to method relation much more refactoring safe as the order of the
+     * method parameters is completely irrelevant.
+     *
+     * @param name
+     * @return
+     */
+    Collection<User> findByFirstnameOrLastname(String name) throws FinderException;
 
     User create(String username, String firstname, String lastname) throws CreateException;
 
-    User findByPrimaryKey(Integer primarykey) throws FinderException;
+    User findByPrimaryKey(Long primarykey) throws FinderException;
 
     Collection<User> findAll() throws FinderException;
 

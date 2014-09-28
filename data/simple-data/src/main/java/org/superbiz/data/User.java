@@ -17,13 +17,15 @@
 package org.superbiz.data;
 
 /**
- * @version $Revision$ $Date$
+ * Sample user class.
+ *
+ * @author David Blevins
  */
-public interface User extends AbstractPersistable<Integer> {
+public interface User extends AbstractPersistable<Long> {
 
-    Integer getId();
+    Long getId();
 
-    void setId(Integer id);
+    void setId(Long id);
 
     String getUsername();
 

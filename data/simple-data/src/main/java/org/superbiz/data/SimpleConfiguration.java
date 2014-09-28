@@ -23,16 +23,16 @@ public abstract class SimpleConfiguration implements EntityBean {
     public SimpleConfiguration() {
     }
 
-    public Integer ejbCreate(String username, String firstname, String lastname) {
+    public Long ejbCreate(String username, String firstname, String lastname) {
         this.setUsername(username);
         this.setFirstname(firstname);
         this.setLastname(lastname);
         return null;
     }
 
-    public abstract Integer getId();
+    public abstract Long getId();
 
-    public abstract void setId(Integer id);
+    public abstract void setId(Long id);
 
     public abstract String getUsername();
 
