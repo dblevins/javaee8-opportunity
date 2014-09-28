@@ -52,7 +52,11 @@ public class Session {
     */
 
 
-    @Slide
+
+    /**
+     * Not going to read you the specs
+     */
+    @Slide("Technical and Industry")
     public static enum Focus {
         NON_OBVIOUS,
 
