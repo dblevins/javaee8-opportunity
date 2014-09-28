@@ -21,16 +21,19 @@ import javax.ejb.FinderException;
 import java.util.Collection;
 
 /**
- * @version $Revision$ $Date$
+ * Simple repository interface for {@link User} instances. The interface is used to declare so called query methods,
+ * methods to retrieve single entities or collections of them.
+ *
+ * @author David Blevins
  */
 interface SimpleUserRepository extends CrudRepository<User, Integer> {
+
+    Collection<User> findByDirector(String director) throws FinderException;
 
     User create(String director, String title, int year) throws CreateException;
 
     User findByPrimaryKey(Integer primarykey) throws FinderException;
 
     Collection<User> findAll() throws FinderException;
-
-    Collection<User> findByDirector(String director) throws FinderException;
 
 }

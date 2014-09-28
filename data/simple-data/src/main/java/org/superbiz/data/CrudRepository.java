@@ -18,6 +18,6 @@ package org.superbiz.data;
 
 import javax.ejb.EJBLocalHome;
 
-public interface CrudRepository<K,V> extends EJBLocalHome {
+public interface CrudRepository<K, V> extends EJBLocalHome {
 
 }
