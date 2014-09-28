@@ -18,6 +18,6 @@
 -->
 <scan>
   <packages>
-    <package>org.superbiz</package>
+    <package>org.supertribe</package>
   </packages>
 </scan>
