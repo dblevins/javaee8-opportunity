@@ -15,7 +15,6 @@
  *  limitations under the License.
  */
 package org.superbiz.embedded.persistence;
-//START SNIPPET: code
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -73,4 +72,3 @@ public class Movie {
         this.year = year;
     }
 }
-//END SNIPPET: code
