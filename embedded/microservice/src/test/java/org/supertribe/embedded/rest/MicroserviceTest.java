@@ -14,10 +14,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.supertribe.embedded;
+package org.supertribe.embedded.rest;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.supertribe.embedded.rest.Main;
+import org.supertribe.embedded.rest.Microservice;
 
 import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
