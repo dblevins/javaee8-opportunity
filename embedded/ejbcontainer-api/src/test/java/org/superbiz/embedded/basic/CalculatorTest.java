@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.superbiz.stateless.basic;
+package org.superbiz.embedded.basic;
 
 import org.junit.AfterClass;
 import org.junit.Before;
