@@ -41,11 +41,11 @@ public class SimpleUserRepositoryTests {
         repository.create("Joel Coen", "Fargo", 1996);
         repository.create("Joel Coen", "The Big Lebowski", 1998);
 
-        Collection<Movie> list = repository.findAll();
+        Collection<User> list = repository.findAll();
         assertEquals("Collection.size()", 3, list.size());
 
-        for (Movie movie : list) {
-            repository.remove(movie.getPrimaryKey());
+        for (User user : list) {
+            repository.remove(user.getPrimaryKey());
         }
 
         assertEquals("Movies.findAll()", 0, repository.findAll().size());

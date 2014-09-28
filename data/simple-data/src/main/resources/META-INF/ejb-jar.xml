@@ -21,8 +21,8 @@
     <entity>
       <ejb-name>MovieBean</ejb-name>
       <local-home>org.superbiz.data.SimpleUserRepository</local-home>
-      <local>org.superbiz.data.Movie</local>
-      <ejb-class>org.superbiz.data.MovieBean</ejb-class>
+      <local>org.superbiz.data.User</local>
+      <ejb-class>org.superbiz.data.SimpleConfiguration</ejb-class>
       <persistence-type>Container</persistence-type>
       <prim-key-class>java.lang.Integer</prim-key-class>
       <reentrant>false</reentrant>

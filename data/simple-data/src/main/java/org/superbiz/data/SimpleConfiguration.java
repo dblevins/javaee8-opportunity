@@ -18,9 +18,9 @@ package org.superbiz.data;
 
 import javax.ejb.EntityBean;
 
-public abstract class MovieBean implements EntityBean {
+public abstract class SimpleConfiguration implements EntityBean {
 
-    public MovieBean() {
+    public SimpleConfiguration() {
     }
 
     public Integer ejbCreate(final String director, String title, final int year) {

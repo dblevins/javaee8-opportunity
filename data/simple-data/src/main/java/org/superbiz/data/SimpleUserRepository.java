@@ -25,11 +25,11 @@ import java.util.Collection;
  */
 interface SimpleUserRepository extends javax.ejb.EJBLocalHome {
 
-    Movie create(String director, String title, int year) throws CreateException;
+    User create(String director, String title, int year) throws CreateException;
 
-    Movie findByPrimaryKey(Integer primarykey) throws FinderException;
+    User findByPrimaryKey(Integer primarykey) throws FinderException;
 
-    Collection<Movie> findAll() throws FinderException;
+    Collection<User> findAll() throws FinderException;
 
-    Collection<Movie> findByDirector(String director) throws FinderException;
+    Collection<User> findByDirector(String director) throws FinderException;
 }

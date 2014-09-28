@@ -19,7 +19,7 @@ package org.superbiz.data;
 /**
  * @version $Revision$ $Date$
  */
-public interface Movie extends javax.ejb.EJBLocalObject {
+public interface User extends javax.ejb.EJBLocalObject {
 
     Integer getId();
 
