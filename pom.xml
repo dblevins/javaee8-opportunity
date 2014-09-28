@@ -12,7 +12,7 @@
   <name>Java EE Game Changers</name>
 
   <modules>
-    <module>annotations</module>
+    <module>highlights</module>
     <module>cdi-ejb-align</module>
     <module>cdi-extensions</module>
     <module>embedded</module>
