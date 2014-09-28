@@ -29,12 +29,12 @@ public interface User extends AbstractPersistable<Integer> {
 
     void setUsername(String username);
 
-    String getTitle();
+    String getFirstname();
 
-    void setTitle(String title);
+    void setFirstname(String firstname);
 
-    int getYear();
+    String getLastname();
 
-    void setYear(int year);
+    void setLastname(String lastname);
 
 }

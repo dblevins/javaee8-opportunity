@@ -19,12 +19,17 @@ package org.superbiz.data;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.ejb.CreateException;
 import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
+import javax.naming.NamingException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @version $Revision: 607077 $ $Date: 2007-12-27 06:55:23 -0800 (Thu, 27 Dec 2007) $
@@ -33,16 +38,21 @@ public class SimpleUserRepositoryTests {
 
     @EJB
     private SimpleUserRepository repository;
+    private User user;
+
+    @Before
+    public void setup() throws Exception {
+        EJBContainer.createEJBContainer().getContext().bind("inject", this);
+
+        user = repository.create("qtarantino", "Quentin", "Tarantino");
+    }
 
     @Test
     public void test() throws Exception {
 
-        repository.create("Quentin Tarantino", "Reservoir Dogs", 1992);
-        repository.create("Joel Coen", "Fargo", 1996);
-        repository.create("Joel Coen", "The Big Lebowski", 1998);
 
         Collection<User> list = repository.findAll();
-        assertEquals("Collection.size()", 3, list.size());
+        assertEquals("Collection.size()", 1, list.size());
 
         for (User user : list) {
             repository.remove(user.getPrimaryKey());
@@ -51,14 +61,4 @@ public class SimpleUserRepositoryTests {
         assertEquals("Movies.findAll()", 0, repository.findAll().size());
     }
 
-    @Before
-    public void setup() throws Exception {
-
-        final Properties p = new Properties();
-        p.put("movieDatabase", "new://Resource?type=DataSource");
-        p.put("movieDatabase.JdbcDriver", "org.hsqldb.jdbcDriver");
-        p.put("movieDatabase.JdbcUrl", "jdbc:hsqldb:mem:moviedb");
-
-        EJBContainer.createEJBContainer(p).getContext().bind("inject", this);
-    }
 }

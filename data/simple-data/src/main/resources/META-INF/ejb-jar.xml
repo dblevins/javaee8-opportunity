@@ -35,10 +35,10 @@
         <field-name>username</field-name>
       </cmp-field>
       <cmp-field>
-        <field-name>year</field-name>
+        <field-name>firstname</field-name>
       </cmp-field>
       <cmp-field>
-        <field-name>title</field-name>
+        <field-name>lastname</field-name>
       </cmp-field>
       <primkey-field>id</primkey-field>
       <query>

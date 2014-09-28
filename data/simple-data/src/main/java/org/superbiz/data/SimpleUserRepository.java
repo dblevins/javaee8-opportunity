@@ -30,7 +30,7 @@ interface SimpleUserRepository extends CrudRepository<User, Integer> {
 
     Collection<User> findByUsersName(String username) throws FinderException;
 
-    User create(String director, String title, int year) throws CreateException;
+    User create(String username, String firstname, String lastname) throws CreateException;
 
     User findByPrimaryKey(Integer primarykey) throws FinderException;
 

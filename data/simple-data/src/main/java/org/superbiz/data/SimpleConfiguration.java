@@ -23,10 +23,10 @@ public abstract class SimpleConfiguration implements EntityBean {
     public SimpleConfiguration() {
     }
 
-    public Integer ejbCreate(final String username, String title, final int year) {
+    public Integer ejbCreate(String username, String firstname, String lastname) {
         this.setUsername(username);
-        this.setTitle(title);
-        this.setYear(year);
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
         return null;
     }
 
@@ -38,12 +38,11 @@ public abstract class SimpleConfiguration implements EntityBean {
 
     public abstract void setUsername(String username);
 
-    public abstract String getTitle();
+    public abstract String getFirstname();
 
-    public abstract void setTitle(String title);
+    public abstract void setFirstname(String firstname);
 
-    public abstract int getYear();
+    public abstract String getLastname();
 
-    public abstract void setYear(int year);
-
+    public abstract void setLastname(String lastname);
 }
