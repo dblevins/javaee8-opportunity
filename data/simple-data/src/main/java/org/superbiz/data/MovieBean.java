@@ -14,22 +14,36 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.superbiz.cmp2;
+package org.superbiz.data;
 
-import javax.ejb.CreateException;
-import javax.ejb.FinderException;
-import java.util.Collection;
+import javax.ejb.EntityBean;
 
-/**
- * @version $Revision$ $Date$
- */
-interface Movies extends javax.ejb.EJBLocalHome {
+public abstract class MovieBean implements EntityBean {
 
-    Movie create(String director, String title, int year) throws CreateException;
+    public MovieBean() {
+    }
 
-    Movie findByPrimaryKey(Integer primarykey) throws FinderException;
+    public Integer ejbCreate(final String director, String title, final int year) {
+        this.setDirector(director);
+        this.setTitle(title);
+        this.setYear(year);
+        return null;
+    }
 
-    Collection<Movie> findAll() throws FinderException;
+    public abstract Integer getId();
 
-    Collection<Movie> findByDirector(String director) throws FinderException;
+    public abstract void setId(Integer id);
+
+    public abstract String getDirector();
+
+    public abstract void setDirector(String director);
+
+    public abstract String getTitle();
+
+    public abstract void setTitle(String title);
+
+    public abstract int getYear();
+
+    public abstract void setYear(int year);
+
 }

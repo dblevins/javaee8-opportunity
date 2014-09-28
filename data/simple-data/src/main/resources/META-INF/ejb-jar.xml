@@ -20,9 +20,9 @@
   <enterprise-beans>
     <entity>
       <ejb-name>MovieBean</ejb-name>
-      <local-home>org.superbiz.cmp2.Movies</local-home>
-      <local>org.superbiz.cmp2.Movie</local>
-      <ejb-class>org.superbiz.cmp2.MovieBean</ejb-class>
+      <local-home>org.superbiz.data.Movies</local-home>
+      <local>org.superbiz.data.Movie</local>
+      <ejb-class>org.superbiz.data.MovieBean</ejb-class>
       <persistence-type>Container</persistence-type>
       <prim-key-class>java.lang.Integer</prim-key-class>
       <reentrant>false</reentrant>
