@@ -19,7 +19,7 @@ package org.superbiz.data;
 /**
  * @version $Revision$ $Date$
  */
-public interface User extends javax.ejb.EJBLocalObject {
+public interface User extends AbstractPersistable<Integer> {
 
     Integer getId();
 
@@ -36,4 +36,5 @@ public interface User extends javax.ejb.EJBLocalObject {
     int getYear();
 
     void setYear(int year);
+
 }

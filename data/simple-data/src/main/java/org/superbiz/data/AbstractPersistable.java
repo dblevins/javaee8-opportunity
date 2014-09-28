@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,24 +16,8 @@
  */
 package org.superbiz.data;
 
-import javax.ejb.CreateException;
-import javax.ejb.FinderException;
-import java.util.Collection;
+import javax.ejb.EJBLocalObject;
 
-/**
- * Simple repository interface for {@link User} instances. The interface is used to declare so called query methods,
- * methods to retrieve single entities or collections of them.
- *
- * @author David Blevins
- */
-interface SimpleUserRepository extends CrudRepository<User, Integer> {
-
-    Collection<User> findByUsersName(String director) throws FinderException;
-
-    User create(String director, String title, int year) throws CreateException;
-
-    User findByPrimaryKey(Integer primarykey) throws FinderException;
-
-    Collection<User> findAll() throws FinderException;
+public interface AbstractPersistable<K> extends EJBLocalObject {
 
 }
