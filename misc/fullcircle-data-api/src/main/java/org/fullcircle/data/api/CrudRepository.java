@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.superbiz.data;
+package org.fullcircle.data.api;
 
 import javax.ejb.EJBLocalHome;
 

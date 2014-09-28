@@ -16,6 +16,8 @@
  */
 package org.superbiz.data;
 
+import org.fullcircle.data.api.AbstractPersistable;
+
 /**
  * Sample user class.
  *

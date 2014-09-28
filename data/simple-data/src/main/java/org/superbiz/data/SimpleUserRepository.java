@@ -16,6 +16,8 @@
  */
 package org.superbiz.data;
 
+import org.fullcircle.data.api.CrudRepository;
+
 import javax.ejb.CreateException;
 import javax.ejb.FinderException;
 import java.util.Collection;
@@ -48,7 +50,7 @@ interface SimpleUserRepository extends CrudRepository<User, Long> {
 
     /**
      * Returns all users with the given firstname. This method will be translated into a query using the one declared in
-     * the {@link Query} annotation declared one.
+     * the {@link org.fullcircle.data.api.Query} annotation declared one.
      *
      * @param firstname
      * @return
@@ -56,7 +58,7 @@ interface SimpleUserRepository extends CrudRepository<User, Long> {
     Collection<User> findByFirstname(String firstname) throws FinderException;
 
     /**
-     * Returns all users with the given name as first- or lastname. Makes use of the {@link Param} annotation to use named
+     * Returns all users with the given name as first- or lastname. Makes use of the {@link org.fullcircle.data.api.Param} annotation to use named
      * parameters in queries. This makes the query to method relation much more refactoring safe as the order of the
      * method parameters is completely irrelevant.
      *

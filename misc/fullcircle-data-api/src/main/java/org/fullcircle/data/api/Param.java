@@ -1,4 +1,4 @@
-package org.superbiz.data;
+package org.fullcircle.data.api;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

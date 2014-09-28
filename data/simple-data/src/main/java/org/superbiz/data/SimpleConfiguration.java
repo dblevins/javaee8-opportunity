@@ -18,6 +18,10 @@ package org.superbiz.data;
 
 import javax.ejb.EntityBean;
 
+/**
+ * CMP 2.0 EntityBeans, since 2001
+ * Anyone who lives long enough will eventually become like their parents
+ */
 public abstract class SimpleConfiguration implements EntityBean {
 
     public SimpleConfiguration() {
