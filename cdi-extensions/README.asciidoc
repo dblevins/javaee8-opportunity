@@ -1,14 +1,11 @@
 # CDI Extensions
 
-
 - Made the jump from declarative to programattic
 - Extendable component registration
 - Extendable lifecycle management
 - Extendable events & observation
 - Extendable dependency injection
 - Extendable annotation processing
-
-(Java EE 6)
 
 # Future
 
@@ -17,4 +14,3 @@
    - Servlet
    - JAX-WS service
    - EJB
-   - Etc.

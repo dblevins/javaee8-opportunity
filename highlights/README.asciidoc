@@ -1,0 +1,5 @@
+# Leaving J2EE
+
+- EAR packaging obsoleted
+- Web Profile
+- Annotations transform APIs
