@@ -16,10 +16,11 @@
  */
 package org.superbiz.injection.jpa;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 import java.util.List;
 import java.util.Properties;
 
@@ -27,18 +28,11 @@ import static org.junit.Assert.assertEquals;
 
 public class MoviesTest {
 
+    @EJB
+    private Movies movies;
+
     @Test
     public void test() throws Exception {
-
-        final Properties p = new Properties();
-        p.put("movieDatabase", "new://Resource?type=DataSource");
-        p.put("movieDatabase.JdbcDriver", "org.hsqldb.jdbcDriver");
-        p.put("movieDatabase.JdbcUrl", "jdbc:hsqldb:mem:moviedb");
-
-        EJBContainer container = EJBContainer.createEJBContainer(p);
-        final Context context = container.getContext();
-
-        Movies movies = (Movies) context.lookup("java:global/ejbcontainer-api/Movies");
 
         movies.addMovie(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
         movies.addMovie(new Movie("Joel Coen", "Fargo", 1996));
@@ -52,7 +46,16 @@ public class MoviesTest {
         }
 
         assertEquals("Movies.getMovies()", 0, movies.getMovies().size());
+    }
 
-        container.close();
+    @Before
+    public void setup() throws Exception {
+
+        final Properties p = new Properties();
+        p.put("movieDatabase", "new://Resource?type=DataSource");
+        p.put("movieDatabase.JdbcDriver", "org.hsqldb.jdbcDriver");
+        p.put("movieDatabase.JdbcUrl", "jdbc:hsqldb:mem:moviedb");
+
+        EJBContainer.createEJBContainer(p).getContext().bind("inject", this);
     }
 }

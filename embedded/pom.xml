@@ -16,6 +16,7 @@
 
   <modules>
     <module>ejbcontainer-api</module>
+    <module>ejbcontainer-injection</module>
     <module>microservice</module>
   </modules>
 </project>
