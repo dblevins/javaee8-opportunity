@@ -24,5 +24,6 @@
     <module>security</module>
     <module>testing</module>
     <module>webprofile</module>
+    <module>data</module>
   </modules>
 </project>
