@@ -1,10 +1,9 @@
-package org.supertribe.cdiext;
+package org.supertribe.cdi.conf;
 
+import javax.enterprise.util.Nonbinding;
 import javax.inject.Qualifier;
 import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
@@ -17,6 +16,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 @Documented
 @Qualifier
-public @interface PleaseAndThankYou {
+public @interface Configuration {
+
+    /**
+     * Take note of the use of @Nonbinding
+     * Allows our producer to handle all @PleaseAndThankYou usage
+     */
+    @Nonbinding
     String value();
 }
