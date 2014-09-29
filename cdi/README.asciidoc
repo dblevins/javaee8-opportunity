@@ -1,0 +1,9 @@
+# CDI Future
+
+- Add any type of component
+   - JAX-RS bean
+   - Servlet
+   - JAX-WS service
+   - EJB
+
+- Eagerly loaded @NormalScoped beans
