@@ -14,7 +14,7 @@
   <modules>
     <module>presentation</module>
     <module>cdi-ejb-align</module>
-    <module>cdi-extensions</module>
+    <module>cdi</module>
     <module>embedded</module>
     <module>jcp-openness</module>
     <module>jms-mdb-revamp</module>
