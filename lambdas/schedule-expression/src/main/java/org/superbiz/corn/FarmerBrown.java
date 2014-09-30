@@ -47,24 +47,34 @@ public class FarmerBrown {
     @PostConstruct
     private void construct() {
         final TimerConfig plantTheCorn = new TimerConfig("plantTheCorn", false);
-        timerService.createCalendarTimer(new ScheduleExpression().month(5).dayOfMonth("20-Last").minute(0).hour(8), plantTheCorn);
-        timerService.createCalendarTimer(new ScheduleExpression().month(6).dayOfMonth("1-10").minute(0).hour(8), plantTheCorn);
+        timerService.createCalendarTimer(schedule().month(5).dayOfMonth("20-Last"), plantTheCorn);
+        timerService.createCalendarTimer(schedule().month(6).dayOfMonth("1-10"), plantTheCorn);
 
         final TimerConfig harvestTheCorn = new TimerConfig("harvestTheCorn", false);
-        timerService.createCalendarTimer(new ScheduleExpression().month(9).dayOfMonth("20-Last").minute(0).hour(8), harvestTheCorn);
-        timerService.createCalendarTimer(new ScheduleExpression().month(10).dayOfMonth("1-10").minute(0).hour(8), harvestTheCorn);
+        timerService.createCalendarTimer(schedule().month(9).dayOfMonth("20-Last"), harvestTheCorn);
+        timerService.createCalendarTimer(schedule().month(10).dayOfMonth("1-10"), harvestTheCorn);
 
         final TimerConfig checkOnTheDaughters = new TimerConfig("checkOnTheDaughters", false);
-        timerService.createCalendarTimer(new ScheduleExpression().second("*").minute("*").hour("*"), checkOnTheDaughters);
+        timerService.createCalendarTimer(schedule().second("*").minute("*").hour("*"), checkOnTheDaughters);
+    }
+
+    private ScheduleExpression schedule() {
+        return new ScheduleExpression().minute(0).hour(8);
     }
 
     @Timeout
     public void timeout(Timer timer) {
+
         if ("plantTheCorn".equals(timer.getInfo())) {
+
             plantTheCorn();
+
         } else if ("harvestTheCorn".equals(timer.getInfo())) {
+
             harvestTheCorn();
+
         } else if ("checkOnTheDaughters".equals(timer.getInfo())) {
+
             checkOnTheDaughters();
         }
     }
