@@ -14,44 +14,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.supertribe;
+package org.supertribe.style;
 
-@Lang("en")
-public class Html {
-
-
-    @Font(size = 12, weight = "normal", family = {"'Helvetica Neue'", "Helvetica", "Arial", "sans-serif"})
-    @Margin(left = 0, right = 0, top = 0, bottom = 0)
-    @Background("#FFFFFF")
-    public void body() {
-    }
-
-    @Font(size = 40)
-    @Width("1000px")
-    public void title() {
-    }
-
-    @Font(size = 12)
-    @Width("100%")
-    @Height("19px")
-    public void table() {
-    }
-
-    @Font(size = 15)
-    @Width("100%")
-    @Height("19px")
-    public void row1() {
-    }
-
-    @Font(size = 15)
-    @Width("100%")
-    @Height("19px")
-    public void row2() {
-    }
-
-    @Font(size = 15)
-    @Width("100%")
-    @Height("19px")
-    public void row3() {
-    }
+@Font(size = 12, weight = "normal", family = {"'Helvetica Neue'", "Helvetica", "Arial", "sans-serif"})
+@Margin(left = 0, right = 0, top = 0, bottom = 0)
+@Background("#FFFFFF")
+public @interface Body {
 }

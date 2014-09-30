@@ -16,45 +16,36 @@
  */
 package org.supertribe;
 
-import org.supertribe.style.Margin;
-import org.supertribe.style.Width;
+import org.supertribe.style.Body;
+import org.supertribe.style.Lang;
+import org.supertribe.style.News;
+import org.supertribe.style.NewsItem;
+import org.supertribe.style.Title;
 
-@org.supertribe.style.Lang("en")
+@Lang("en")
 public class Html {
 
-
-    @org.supertribe.style.Font(size = 12, weight = "normal", family = {"'Helvetica Neue'", "Helvetica", "Arial", "sans-serif"})
-    @Margin(left = 0, right = 0, top = 0, bottom = 0)
-    @org.supertribe.style.Background("#FFFFFF")
+    @Body
     public void body() {
     }
 
-    @org.supertribe.style.Font(size = 40)
-    @org.supertribe.style.Width("1000px")
+    @Title
     public void title() {
     }
 
-    @org.supertribe.style.Font(size = 12)
-    @org.supertribe.style.Width("100%")
-    @org.supertribe.style.Height("19px")
+    @News
     public void table() {
     }
 
-    @org.supertribe.style.Font(size = 15)
-    @org.supertribe.style.Width("100%")
-    @org.supertribe.style.Height("19px")
+    @NewsItem
     public void row1() {
     }
 
-    @org.supertribe.style.Font(size = 15)
-    @org.supertribe.style.Width("100%")
-    @org.supertribe.style.Height("19px")
+    @NewsItem
     public void row2() {
     }
 
-    @Font(size = 15)
-    @Width("100%")
-    @Height("19px")
+    @NewsItem
     public void row3() {
     }
 }
