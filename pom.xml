@@ -13,18 +13,13 @@
 
   <modules>
     <module>presentation</module>
-    <module>cdi-ejb-align</module>
     <module>cdi</module>
     <module>embedded</module>
-    <module>jcp-openness</module>
     <module>jms-mdb-revamp</module>
     <module>lambdas</module>
     <module>meta-annotations</module>
-    <module>packaging</module>
-    <module>security</module>
-    <module>testing</module>
-    <module>webprofile</module>
     <module>data</module>
+    <module>dataish</module>
     <module>misc</module>
   </modules>
 </project>
