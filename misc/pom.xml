@@ -18,5 +18,7 @@
 
   <modules>
     <module>fullcircle-data-api</module>
+    <module>future-jms-api</module>
+    <module>ejb-meta-api</module>
   </modules>
 </project>

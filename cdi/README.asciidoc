@@ -7,3 +7,12 @@
    - EJB
 
 - Eagerly loaded @NormalScoped beans
+
+# META-INF/services
+
+No longer need META-INF/service/*
+
+Throw an event, listeners automatically discovered and invoked
+
+
+
