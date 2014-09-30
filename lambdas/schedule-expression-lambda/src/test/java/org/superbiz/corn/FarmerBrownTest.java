@@ -16,6 +16,7 @@
  */
 package org.superbiz.corn;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ejb.EJB;
@@ -27,6 +28,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @version $Revision$ $Date$
  */
+@Ignore
 public class FarmerBrownTest {
 
     @EJB

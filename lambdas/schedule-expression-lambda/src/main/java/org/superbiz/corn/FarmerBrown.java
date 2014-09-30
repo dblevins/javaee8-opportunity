@@ -25,8 +25,8 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.ejb.Timeout;
 import javax.ejb.Timer;
-import javax.ejb.TimerConfig;
-import javax.ejb.TimerService;
+import javax.timer.TimerService;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -46,49 +46,32 @@ public class FarmerBrown {
 
     @PostConstruct
     private void construct() {
-        final TimerConfig plantTheCorn = new TimerConfig("plantTheCorn", false);
-        timerService.createCalendarTimer(schedule().month(5).dayOfMonth("20-Last"), plantTheCorn);
-        timerService.createCalendarTimer(schedule().month(6).dayOfMonth("1-10"), plantTheCorn);
+        timerService.createCalendarTimer(schedule().month(5).dayOfMonth("20-Last"), this::plantTheCorn);
+        timerService.createCalendarTimer(schedule().month(6).dayOfMonth("1-10"), this::plantTheCorn);
 
-        final TimerConfig harvestTheCorn = new TimerConfig("harvestTheCorn", false);
-        timerService.createCalendarTimer(schedule().month(9).dayOfMonth("20-Last"), harvestTheCorn);
-        timerService.createCalendarTimer(schedule().month(10).dayOfMonth("1-10"), harvestTheCorn);
+        timerService.createCalendarTimer(schedule().month(9).dayOfMonth("20-Last"), this::plantTheCorn);
+        timerService.createCalendarTimer(schedule().month(10).dayOfMonth("1-10"), this::plantTheCorn);
 
-        final TimerConfig checkOnTheDaughters = new TimerConfig("checkOnTheDaughters", false);
-        timerService.createCalendarTimer(schedule().second("*").minute("*").hour("*"), checkOnTheDaughters);
+        timerService.createCalendarTimer(schedule().second("*").minute("*").hour("*"), this::checkOnTheDaughters);
     }
 
     private ScheduleExpression schedule() {
         return new ScheduleExpression().minute(0).hour(8);
     }
 
-    @Timeout
-    public void timeout(Timer timer) {
-
-        if ("plantTheCorn".equals(timer.getInfo())) {
-
-            plantTheCorn();
-
-        } else if ("harvestTheCorn".equals(timer.getInfo())) {
-
-            harvestTheCorn();
-
-        } else if ("checkOnTheDaughters".equals(timer.getInfo())) {
-
-            checkOnTheDaughters();
-        }
-    }
-
-    private void plantTheCorn() {
+    private Object plantTheCorn(Object o) {
         // Dig out the planter!!!
+        return null;
     }
 
-    private void harvestTheCorn() {
+    private Object harvestTheCorn(Object o) {
         // Dig out the combine!!!
+        return null;
     }
 
-    private void checkOnTheDaughters() {
+    private Object checkOnTheDaughters(Object o) {
         checks.incrementAndGet();
+        return null;
     }
 
     public int getChecks() {
