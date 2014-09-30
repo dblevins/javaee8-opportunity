@@ -108,9 +108,7 @@ public class Session {
 
         META_ANNOTATIONS,
 
-        LAMBDAS,
-
-        SECURITY,
+        LAMBDAS
 
     }
 
@@ -185,7 +183,21 @@ public class Session {
 
 
 
+    /*
 
+
+
+
+
+
+
+
+
+
+
+
+
+    */
 
 
     @Slide("EJB.last")
@@ -195,13 +207,42 @@ public class Session {
 
         REDO_USING_LAMDAS,
 
+        KILL_DONT_COPY
+    }
+
+
+
+
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+    */
+
+
+    @Slide
+    public static enum OurFuture {
+
         WE_GET_OUT_WHAT_WE_PUT_IN,
+
+        /** Portability is not a silver bullet, it's a life raft **/
+        PORTABILITY,
+
+        ITS_OUR_GAME,
 
         NEXT_10_ARE_UP_TO_US,
 
     }
-
-
 
 
     /*
@@ -272,6 +313,7 @@ public class Session {
         QuickHistory.values();
         Topics.values();
         DeprecatingEJB.values();
+        OurFuture.values();
 //        for (final Focus focus : Focus.values()) {
 //
 //        }
