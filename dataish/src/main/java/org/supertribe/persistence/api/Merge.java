@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -14,31 +14,17 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.superbiz.data;
+package org.supertribe.persistence.api;
 
-import org.fullcircle.data.api.AbstractPersistable;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Sample user class.
- *
- * @author David Blevins
- */
-public interface User extends AbstractPersistable<Long> {
-
-    Long getId();
-
-    void setId(Long id);
-
-    String getUsername();
-
-    void setUsername(String username);
-
-    String getFirstname();
-
-    void setFirstname(String firstname);
-
-    String getLastname();
-
-    void setLastname(String lastname);
-
+* @version $Revision$ $Date$
+*/
+@Target(value = ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Merge {
 }

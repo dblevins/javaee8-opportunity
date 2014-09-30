@@ -87,6 +87,11 @@
   </repositories>
   <dependencies>
 
+    <dependency>
+      <groupId>org.tomitribe</groupId>
+      <artifactId>tomitribe-util</artifactId>
+      <version>1.0.0</version>
+    </dependency>
     <!-- spec apis such as javax.persistence -->
     <dependency>
       <groupId>org.apache.openejb</groupId>
