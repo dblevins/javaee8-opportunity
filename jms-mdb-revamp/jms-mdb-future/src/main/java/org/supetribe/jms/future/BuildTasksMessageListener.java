@@ -14,14 +14,17 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.supertribe.jms;
+package org.supetribe.jms.future;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
+import javax.jms.foo.Destination;
+import javax.jms.foo.DestinationType;
+import javax.jms.foo.MaxMessagesPerSession;
+import javax.jms.foo.MaxSessions;
+import javax.jms.foo.MessageType;
 
 @MessageDriven(activationConfig = {
         @ActivationConfigProperty(propertyName = "maxSessions", propertyValue = "3"),
@@ -29,30 +32,24 @@ import javax.jms.ObjectMessage;
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
         @ActivationConfigProperty(propertyName = "destination", propertyValue = "TASK.QUEUE")
 })
-public class BuildTasksMessageListener implements MessageListener {
+@MaxSessions(3)
+@MaxMessagesPerSession(1)
+public class BuildTasksMessageListener {
 
-    @Override
-    public void onMessage(Message message) {
-        try {
+    @Destination("TASK.QUEUE")
+    @DestinationType(javax.jms.Queue.class)
+    @MessageType(ObjectMessage.class)
+    public void processBuildTask(BuildTask buildTask) throws JMSException {
 
-            if (!(message instanceof ObjectMessage)) {
-                throw new JMSException("Expected ObjectMessage, received " + message.getJMSType());
-            }
-
-            final ObjectMessage objectMessage = (ObjectMessage) message;
-
-            final BuildTask buildTask = (BuildTask) objectMessage.getObject();
-
-            doSomethingUseful(buildTask);
-
-        } catch (JMSException e) {
-            // Why can't I throw a JMS Exception
-            throw new RuntimeException(e);
-        }
+        System.out.println("Something useful " + buildTask);
     }
 
-    // This is the only "useful" code in the class
-    private void doSomethingUseful(BuildTask buildTask) {
-        System.out.println(buildTask);
+    @Destination("BUILD.TOPIC")
+    @DestinationType(javax.jms.Topic.class)
+    @MessageType(ObjectMessage.class)
+    public void processBuildTask(BuildNotification notification) throws JMSException {
+
+        System.out.println("Something happened " + notification);
     }
+
 }

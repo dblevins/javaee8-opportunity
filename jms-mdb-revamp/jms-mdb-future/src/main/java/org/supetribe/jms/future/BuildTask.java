@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -14,21 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-//
-// This source code implements specifications defined by the Java
-// Community Process. In order to remain compliant with the specification
-// DO NOT add / change / or delete method signatures!
-//
-package javax.jms.foo;
+package org.supetribe.jms.future;
 
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Target({ElementType.TYPE, ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface DestinationType {
-    Class value();
+public class BuildTask {
 }
