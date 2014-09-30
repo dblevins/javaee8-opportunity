@@ -186,6 +186,24 @@ public class Session {
 
 
 
+
+
+    @Slide("EJB.last")
+    public static enum DeprecatingEJB {
+
+        BIGGER_OPPORTUNITY,
+
+        REDO_USING_LAMDAS,
+
+        WE_GET_OUT_WHAT_WE_PUT_IN,
+
+        NEXT_10_ARE_UP_TO_US,
+
+    }
+
+
+
+
     /*
 
 
@@ -253,6 +271,7 @@ public class Session {
         JCP.values();
         QuickHistory.values();
         Topics.values();
+        DeprecatingEJB.values();
 //        for (final Focus focus : Focus.values()) {
 //
 //        }

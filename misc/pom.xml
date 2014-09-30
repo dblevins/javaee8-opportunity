@@ -20,5 +20,6 @@
     <module>fullcircle-data-api</module>
     <module>future-jms-api</module>
     <module>ejb-meta-api</module>
+    <module>timerservice-lambdas</module>
   </modules>
 </project>
