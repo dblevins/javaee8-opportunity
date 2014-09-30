@@ -16,23 +16,26 @@
  */
 package org.superbiz.corn;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
+import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @version $Revision$ $Date$
  */
-public class FarmerBrownTest extends TestCase {
+public class FarmerBrownTest {
 
+    @EJB
+    private FarmerBrown farmerBrown;
+
+    @Test
     public void test() throws Exception {
 
-        final Context context = EJBContainer.createEJBContainer().getContext();
-
-        final FarmerBrown farmerBrown = (FarmerBrown) context.lookup("java:global/schedule-expression/FarmerBrown");
+        EJBContainer.createEJBContainer().getContext().bind("inject", this);
 
         // Give Farmer brown a chance to do some work
         Thread.sleep(SECONDS.toMillis(5));
