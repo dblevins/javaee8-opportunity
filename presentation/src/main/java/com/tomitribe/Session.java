@@ -166,6 +166,63 @@ public class Session {
     */
 
 
+    @Slide("More than DI")
+    public static enum CDI {
+
+        DECLARATIVE_TO_PROGRAMMATIC,
+
+        EVENTS_AND_LIFECYCLE,
+
+        SCOPES,
+
+    }
+
+
+
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+    */
+
+    @Slide("Better Alignment")
+    public static enum CDIFuture {
+
+        CDI_EJB_ALIGNMENT,
+
+        ADD_ANY_COMPONENT,
+
+    }
+
+
+
+    /*
+
+
+
+
+
+
+
+
+
+
+
+
+
+    */
+
+
     @Slide("The JCP is Yours")
     public static enum JCP {
         @Year(2004)
@@ -314,6 +371,8 @@ public class Session {
         Topics.values();
         DeprecatingEJB.values();
         OurFuture.values();
+        CDI.values();
+        CDIFuture.values();
 //        for (final Focus focus : Focus.values()) {
 //
 //        }
