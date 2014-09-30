@@ -19,8 +19,12 @@
 // Community Process. In order to remain compliant with the specification
 // DO NOT add / change / or delete method signatures!
 //
-package javax.ejb;
+package javax.timer;
 
+import javax.ejb.EJBException;
+import javax.ejb.ScheduleExpression;
+import javax.ejb.Timer;
+import javax.ejb.TimerConfig;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -47,6 +51,5 @@ public interface TimerService {
     Timer createIntervalTimer(java.util.Date initialExpiration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException;
 
     Timer createCalendarTimer(ScheduleExpression schedule, TimeoutFunction function) throws IllegalArgumentException, IllegalStateException, EJBException;
-
 
 }
