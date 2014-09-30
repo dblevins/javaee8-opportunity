@@ -18,5 +18,6 @@
 
   <modules>
     <module>producers</module>
+    <module>events</module>
   </modules>
 </project>
