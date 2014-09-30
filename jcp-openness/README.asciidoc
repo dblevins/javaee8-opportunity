@@ -1,5 +1,0 @@
-# JCP Milestones
-
-- 2004 first certified Open Source Java EE Servers
-- 2009 first Open Source JSRs and TCKs released in Java EE
-- 2013 first Java EE release developed openly

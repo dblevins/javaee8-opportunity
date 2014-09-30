@@ -28,6 +28,7 @@ import javax.ejb.TimerConfig;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.function.Function;
 
 public interface TimerService {
     Timer createTimer(Date initialExpiration, long intervalDuration, TimeoutFunction function) throws IllegalArgumentException, IllegalStateException, EJBException;
@@ -50,6 +51,7 @@ public interface TimerService {
 
     Timer createIntervalTimer(java.util.Date initialExpiration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException;
 
-    Timer createCalendarTimer(ScheduleExpression schedule, TimeoutFunction function) throws IllegalArgumentException, IllegalStateException, EJBException;
+//    Timer createCalendarTimer(ScheduleExpression schedule, TimeoutFunction function) throws IllegalArgumentException, IllegalStateException, EJBException;
+    Timer createCalendarTimer(ScheduleExpression schedule, Function function) throws IllegalArgumentException, IllegalStateException, EJBException;
 
 }
