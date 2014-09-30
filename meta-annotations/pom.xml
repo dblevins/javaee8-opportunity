@@ -19,6 +19,7 @@
   <modules>
     <module>schedule-methods</module>
     <module>schedule-methods-meta</module>
-    <module>h</module>
+    <module>html-css-comparison</module>
+    <module>html-css-comparison-meta</module>
   </modules>
 </project>
