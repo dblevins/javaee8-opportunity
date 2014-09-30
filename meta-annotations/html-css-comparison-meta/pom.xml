@@ -7,18 +7,13 @@
 
   <parent>
     <groupId>org.superbiz</groupId>
-    <artifactId>gamechangers</artifactId>
+    <artifactId>meta-annotations</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>meta-annotations</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>html-css-comparison-meta</artifactId>
+  <packaging>jar</packaging>
 
-  <name>Meta-Annotations</name>
+  <name>Meta-Annotations :: HTML/CSS comparison</name>
 
-  <modules>
-    <module>schedule-methods</module>
-    <module>schedule-methods-meta</module>
-    <module>h</module>
-  </modules>
 </project>
