@@ -95,13 +95,14 @@ public class Session {
         /* Present */
         EMBEDDED_CONTAINERS,
 
+        TESTING,
+
         CDI,
 
         DATA,
 
         JCP,
 
-        TESTING,
 
         /* Future */
         JMS_MDB,
