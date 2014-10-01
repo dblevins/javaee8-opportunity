@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.superbiz</groupId>
   <artifactId>lambdas</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <version>1.1.0-SNAPSHOT</version>
   <name>lambdas</name>
   <properties>
