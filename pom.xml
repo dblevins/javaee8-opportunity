@@ -14,6 +14,7 @@
   <modules>
     <module>presentation</module>
     <module>cdi</module>
+    <module>arquillian</module>
     <module>embedded</module>
     <module>jms-mdb-revamp</module>
     <module>lambdas</module>
