@@ -26,12 +26,7 @@ import javax.jms.foo.MaxMessagesPerSession;
 import javax.jms.foo.MaxSessions;
 import javax.jms.foo.MessageType;
 
-@MessageDriven(activationConfig = {
-        @ActivationConfigProperty(propertyName = "maxSessions", propertyValue = "3"),
-        @ActivationConfigProperty(propertyName = "maxMessagesPerSessions", propertyValue = "1"),
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "TASK.QUEUE")
-})
+@MessageDriven
 @MaxSessions(3)
 @MaxMessagesPerSession(1)
 public class BuildTasksMessageListener {
