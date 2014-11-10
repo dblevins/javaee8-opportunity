@@ -21,6 +21,7 @@
     <module>meta-annotations</module>
     <module>data</module>
     <module>dataish</module>
+    <module>security</module>
     <module>misc</module>
   </modules>
 </project>
