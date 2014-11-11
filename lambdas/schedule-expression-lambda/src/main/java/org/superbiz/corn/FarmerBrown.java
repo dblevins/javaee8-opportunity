@@ -49,8 +49,8 @@ public class FarmerBrown {
         timerService.createCalendarTimer(schedule().month(5).dayOfMonth("20-Last"), this::plantTheCorn);
         timerService.createCalendarTimer(schedule().month(6).dayOfMonth("1-10"), this::plantTheCorn);
 
-        timerService.createCalendarTimer(schedule().month(9).dayOfMonth("20-Last"), this::plantTheCorn);
-        timerService.createCalendarTimer(schedule().month(10).dayOfMonth("1-10"), this::plantTheCorn);
+        timerService.createCalendarTimer(schedule().month(9).dayOfMonth("20-Last"), this::harvestTheCorn);
+        timerService.createCalendarTimer(schedule().month(10).dayOfMonth("1-10"), this::harvestTheCorn);
 
         timerService.createCalendarTimer(schedule().second("*").minute("*").hour("*"), this::checkOnTheDaughters);
     }
