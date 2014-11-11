@@ -17,7 +17,7 @@
 package org.supertribe.dataish;
 
 import org.supertribe.persistence.api.Find;
-import org.supertribe.persistence.api.NamedQuery;
+import org.supertribe.persistence.api.QueryName;
 import org.supertribe.persistence.api.Persist;
 import org.supertribe.persistence.api.QueryParam;
 import org.supertribe.persistence.api.Remove;
@@ -48,7 +48,7 @@ public abstract class Users implements InvocationHandler {
      * @param username
      * @return
      */
-    @NamedQuery(User.FIND_BY_USERNAME)
+    @QueryName(User.FIND_BY_USERNAME)
     public abstract User findByTheUsersName(@QueryParam("username") String username);
 
     /**
@@ -58,7 +58,7 @@ public abstract class Users implements InvocationHandler {
      * @param lastname
      * @return
      */
-    @NamedQuery(User.FIND_BY_LASTNAME)
+    @QueryName(User.FIND_BY_LASTNAME)
     public abstract List<User> findByLastname(@QueryParam("lastname") String lastname);
 
     /**
@@ -68,7 +68,7 @@ public abstract class Users implements InvocationHandler {
      * @param firstname
      * @return
      */
-    @NamedQuery(User.FIND_BY_FIRSTNAME)
+    @QueryName(User.FIND_BY_FIRSTNAME)
     public abstract List<User> findByFirstname(@QueryParam("firstname") String firstname);
 
     /**
@@ -96,7 +96,7 @@ public abstract class Users implements InvocationHandler {
     @Find
     public abstract User findByPrimaryKey(Long primarykey);
 
-    @NamedQuery(User.FIND_ALL)
+    @QueryName(User.FIND_ALL)
     public abstract Collection<User> findAll();
 
     @Override

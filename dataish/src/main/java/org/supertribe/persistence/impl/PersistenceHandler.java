@@ -19,7 +19,7 @@ package org.supertribe.persistence.impl;
 
 import org.supertribe.persistence.api.Find;
 import org.supertribe.persistence.api.Merge;
-import org.supertribe.persistence.api.NamedQuery;
+import org.supertribe.persistence.api.QueryName;
 import org.supertribe.persistence.api.Persist;
 import org.supertribe.persistence.api.QueryParam;
 import org.supertribe.persistence.api.Remove;
@@ -42,7 +42,7 @@ public class PersistenceHandler {
 
     public static Object invoke(EntityManager em, Method method, Object[] args) throws Throwable {
 
-        if (method.isAnnotationPresent(NamedQuery.class)) {
+        if (method.isAnnotationPresent(QueryName.class)) {
 
             return invokeNamedQuery(em, method, args);
 
@@ -132,9 +132,9 @@ public class PersistenceHandler {
      * @throws Throwable
      */
     public static Object invokeNamedQuery(EntityManager em, Method method, Object[] args) throws Throwable {
-        final NamedQuery namedQuery = method.getAnnotation(NamedQuery.class);
+        final QueryName queryName = method.getAnnotation(QueryName.class);
 
-        final TypedQuery<?> typedQuery = em.createNamedQuery(namedQuery.value(), getEntityType(method));
+        final TypedQuery<?> typedQuery = em.createNamedQuery(queryName.value(), getEntityType(method));
 
         for (Parameter parameter : Reflection.params(method, args)) {
             final QueryParam queryParam = parameter.getAnnotation(QueryParam.class);
