@@ -46,17 +46,16 @@ public class FarmerBrown {
 
     @PostConstruct
     private void construct() {
-        timerService.createCalendarTimer(schedule().month(5).dayOfMonth("20-Last"), this::plantTheCorn);
+        final ScheduleExpression schedule = schedule().month(5).dayOfMonth("20-Last");
+
+        timerService.createCalendarTimer(schedule, this::plantTheCorn);
+
         timerService.createCalendarTimer(schedule().month(6).dayOfMonth("1-10"), this::plantTheCorn);
 
         timerService.createCalendarTimer(schedule().month(9).dayOfMonth("20-Last"), this::harvestTheCorn);
         timerService.createCalendarTimer(schedule().month(10).dayOfMonth("1-10"), this::harvestTheCorn);
 
         timerService.createCalendarTimer(schedule().second("*").minute("*").hour("*"), this::checkOnTheDaughters);
-    }
-
-    private ScheduleExpression schedule() {
-        return new ScheduleExpression().minute(0).hour(8);
     }
 
     private Object plantTheCorn(Object o) {
@@ -77,4 +76,9 @@ public class FarmerBrown {
     public int getChecks() {
         return checks.get();
     }
+
+    private ScheduleExpression schedule() {
+        return new ScheduleExpression().minute(0).hour(8);
+    }
+
 }
