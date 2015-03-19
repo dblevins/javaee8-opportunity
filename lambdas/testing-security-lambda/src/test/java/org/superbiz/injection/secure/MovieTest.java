@@ -28,7 +28,6 @@ import javax.ejb.Stateless;
 import javax.ejb.embeddable.EJBContainer;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.Callable;
 
 //START SNIPPET: code
 
@@ -38,10 +37,10 @@ public class MovieTest {
     private Movies movies;
 
     @EJB(name = "ManagerBean")
-    private Caller manager;
+    private ManagerBean manager;
 
     @EJB(name = "EmployeeBean")
-    private Caller employee;
+    private EmployeeBean employee;
 
     private EJBContainer container;
 
@@ -63,51 +62,45 @@ public class MovieTest {
 
     @Test
     public void testAsManager() throws Exception {
-        manager.call(new Callable() {
-            public Object call() throws Exception {
+        manager.run(() -> {
 
-                movies.addMovie(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
-                movies.addMovie(new Movie("Joel Coen", "Fargo", 1996));
-                movies.addMovie(new Movie("Joel Coen", "The Big Lebowski", 1998));
+            movies.addMovie(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
+            movies.addMovie(new Movie("Joel Coen", "Fargo", 1996));
+            movies.addMovie(new Movie("Joel Coen", "The Big Lebowski", 1998));
 
-                List<Movie> list = movies.getMovies();
-                Assert.assertEquals("List.size()", 3, list.size());
+            List<Movie> list = movies.getMovies();
+            Assert.assertEquals("List.size()", 3, list.size());
 
-                for (Movie movie : list) {
-                    movies.deleteMovie(movie);
-                }
-
-                Assert.assertEquals("Movies.getMovies()", 0, movies.getMovies().size());
-                return null;
+            for (Movie movie : list) {
+                movies.deleteMovie(movie);
             }
+
+            Assert.assertEquals("Movies.getMovies()", 0, movies.getMovies().size());
         });
     }
 
     @Test
     public void testAsEmployee() throws Exception {
-        employee.call(new Callable() {
-            public Object call() throws Exception {
+        employee.run(() -> {
 
-                movies.addMovie(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
-                movies.addMovie(new Movie("Joel Coen", "Fargo", 1996));
-                movies.addMovie(new Movie("Joel Coen", "The Big Lebowski", 1998));
+            movies.addMovie(new Movie("Quentin Tarantino", "Reservoir Dogs", 1992));
+            movies.addMovie(new Movie("Joel Coen", "Fargo", 1996));
+            movies.addMovie(new Movie("Joel Coen", "The Big Lebowski", 1998));
 
-                List<Movie> list = movies.getMovies();
-                Assert.assertEquals("List.size()", 3, list.size());
+            List<Movie> list = movies.getMovies();
+            Assert.assertEquals("List.size()", 3, list.size());
 
-                for (Movie movie : list) {
-                    try {
-                        movies.deleteMovie(movie);
-                        Assert.fail("Employees should not be allowed to delete");
-                    } catch (EJBAccessException e) {
-                        // Good, Employees cannot delete things
-                    }
+            for (Movie movie : list) {
+                try {
+                    movies.deleteMovie(movie);
+                    Assert.fail("Employees should not be allowed to delete");
+                } catch (EJBAccessException e) {
+                    // Good, Employees cannot delete things
                 }
-
-                // The list should still be three movies long
-                Assert.assertEquals("Movies.getMovies()", 3, movies.getMovies().size());
-                return null;
             }
+
+            // The list should still be three movies long
+            Assert.assertEquals("Movies.getMovies()", 3, movies.getMovies().size());
         });
     }
 
@@ -138,10 +131,6 @@ public class MovieTest {
 
     }
 
-    public static interface Caller {
-        public <V> V call(Callable<V> callable) throws Exception;
-    }
-
     /**
      * This little bit of magic allows our test code to execute in
      * the desired security scope.
@@ -149,18 +138,22 @@ public class MovieTest {
 
     @Stateless
     @RunAs("Manager")
-    public static class ManagerBean implements Caller {
-        public <V> V call(Callable<V> callable) throws Exception {
-            return callable.call();
+    public static class ManagerBean  {
+        public void run(Callable callable) throws Exception {
+            callable.call();
         }
     }
 
     @Stateless
     @RunAs("Employee")
-    public static class EmployeeBean implements Caller {
-        public <V> V call(Callable<V> callable) throws Exception {
-            return callable.call();
+    public static class EmployeeBean {
+        public void run(Callable callable) throws Exception {
+            callable.call();
         }
+    }
+
+    public interface Callable {
+        void call() throws Exception;
     }
 
 }
