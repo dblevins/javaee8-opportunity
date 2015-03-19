@@ -26,26 +26,20 @@ import org.supertribe.style.Title;
 public class Html {
 
     @Body
-    public void body() {
-    }
+    public void body() { /* ... */ }
 
     @Title
-    public void title() {
-    }
+    public void title() { /* ... */ }
 
     @News
-    public void table() {
-    }
+    public void table() { /* ... */ }
 
     @NewsItem
-    public void row1() {
-    }
+    public void row1() { /* ... */ }
 
     @NewsItem
-    public void row2() {
-    }
+    public void row2() { /* ... */ }
 
     @NewsItem
-    public void row3() {
-    }
+    public void row3() { /* ... */ }
 }
