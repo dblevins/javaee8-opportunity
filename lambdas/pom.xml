@@ -12,6 +12,8 @@
   <modules>
     <module>schedule-expression</module>
     <module>schedule-expression-lambda</module>
+    <module>testing-security-lambda</module>
+    <module>testing-security-methodref</module>
   </modules>
 
   <!-- This section allows you to configure where to publish libraries for
