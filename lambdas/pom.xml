@@ -11,7 +11,7 @@
 
   <modules>
     <module>schedule-expression</module>
-    <module>schedule-expression-lambda</module>
+    <module>schedule-expression-methodref</module>
     <module>testing-security-lambda</module>
     <module>testing-security-methodref</module>
   </modules>
